@@ -1,0 +1,629 @@
+@charset "utf-8"
+
+/***************** 
+Document CSS
+
+	[Sommaire]
+
+1. Polices
+2. Corps du site
+3. En tête
+	3.1. Bar d'en tête
+	3.2. Logo
+	3.3. Navigation
+	3.4. Acceuil
+4. Acceuil
+5. Pied de page
+
+******************/
+
+/**********
+1. Polices 
+***********/
+
+/* #413571 */
+
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+@font-face
+{
+	font-family: 'Beyond';
+	src: url('beyond_the_mountains.otf')  format('truetype'),
+		 url('beyond_the_mountains.ttf')  format('opentype');
+}
+
+/***************
+2. Corps du site 
+***************/
+*
+{
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+body
+{
+	font-family: 'Karla', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	background: #FFFFFF;
+	color: #a5a5a5;
+}
+div
+{
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul
+{
+	list-style: none;
+	margin-bottom: 0px;
+}
+p
+{
+	font-family: 'Karla', sans-serif;
+	font-size: 14px;
+	line-height: 2;
+	font-weight: 400;
+	color: #929191;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p a
+{
+	display: inline;
+	position: relative;
+	color: inherit;
+	border-bottom: solid 1px #ffa07f;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+a, a:hover, a:visited, a:active, a:link
+{
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p a:active
+{
+	position: relative;
+	color: #FF6347;
+}
+p a:hover
+{
+	color: #FFFFFF;
+	background: #ffa07f;
+}
+p a:hover::after
+{
+	opacity: 0.2;
+}
+::selection
+{
+	
+}
+p::selection
+{
+	
+}
+h1{font-size: 48px;}
+h2{font-size: 36px;}
+h3{font-size: 24px;}
+h4{font-size: 18px;}
+h5{font-size: 14px;}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Karla', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+h6::selection
+{
+	
+}
+.form-control
+{
+	color: #db5246;
+}
+section
+{
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+}
+.fill_height
+{
+	height: 100%;
+}
+.super_container
+{
+	width: 100%;
+	overflow: hidden;
+}
+
+/****************
+3. En tête 
+****************/
+.header 
+{
+	position: fixed;
+	width: 100%;
+	background: rgba(54, 19, 84, 0.6);
+}
+/*********************************
+3.1 Top Bar
+*********************************/
+
+.top_bar
+{
+	width: 100%;
+	height: 36px;
+	background: linear-gradient(to right, #fa9e1b, #8d4fff);
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+.social
+{
+	display: inline-block;
+	margin-right: 36px;
+	line-height: 36px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #FFFFFF;
+}
+.social_list_item
+{
+	position: relative;
+	display: inline-block;
+	margin-right: 3px;
+}
+.social_list_item:last-child
+{
+	margin-right: 0px;
+}
+.social_list_item a
+{
+	display: block;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 36px;
+}
+.social_list_item:hover a i
+{
+	color: #fa9e1c;
+}
+.social_list_item a i
+{
+	font-size: 12px;
+	color: #FFFFFF;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.social_list_item a:hover
+{
+	color: #FFFFFF;
+}
+.user_box_link
+{
+	display: inline-block;
+}
+.user_box_link a
+{
+	display: block;
+	font-size: 13px;
+	line-height: 36px;
+	font-weight: 600;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+.user_box_link a:hover
+{
+	color: #fa9e1c;
+}
+.user_box_login
+{
+	margin-right: 15px;
+}
+.user_box_login::after
+{
+	display: block;
+	position: absolute;
+	top: 15px;
+	right: -9px;
+	background: #FFFFFF;
+	width: 1px;
+	height: 9px;
+	content: '';
+}
+/*********************************
+3.2 Logo
+*********************************/
+.logo_container
+{
+	-webkit-transform: translateY(-6px);
+	-moz-transform: translateY(-6px);
+	-ms-transform: translateY(-6px);
+	-o-transform: translateY(-6px);
+	transform: translateY(-6px);
+}
+.logo a
+{
+	font-family: 'Beyond', sans-serif;
+	font-size: 40px;
+	color: #FFFFFF;
+	font-weight: 200;
+}
+.logo a img
+{
+	display: inline-block;
+	vertical-align: baseline;
+	margin-right: 9px;
+	-webkit-transform: translateY(2px);
+	-moz-transform: translateY(2px);
+	-ms-transform: translateY(2px);
+	-o-transform: translateY(2px);
+	transform: translateY(2px);
+}
+/*****************
+3.3. Navigation
+*****************/
+.main_nav
+{
+	background: linear-gradient(to right, #fa9e1b, #8d4fff);
+}
+.main_nav_container
+{
+	margin-right: 150px;
+	margin-top: 20px;
+}
+.main_nav_item
+{
+	border: 2px solid #31124b;
+	position: relative;
+	display: inline-block;
+	margin-right: 40px;
+}
+.main_nav_item:last-child
+{
+	margin-right: 0px;
+}
+.main_nav_item a
+{
+	font-family: 'Karla', sans-serif;
+	font-size: 20px;
+	font-weight: 900;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.main_nav_item a:hover
+{
+	color: #fa9e1c;
+}
+
+/*********************************
+3.4 Acceuil
+*********************************/
+.home
+{
+	width: 100%;
+	height: 100vh;
+}
+.home_container
+{
+	position: relative;
+	text-align: center;
+}
+.home_background_text h1
+{
+	vertical-align: middle;
+	position: center;
+	text-align: center;
+	margin-top: 50px;
+	color: #31124b;
+}
+.home_background_text h1:first-child
+{
+	font-family: 'Karla';
+	position: center;
+	font-size: 80px;
+	font-weight: 700;
+	color: #31124b;
+	text-transform: uppercase;
+}
+.home_background_text h1:nth-child(2)
+{
+	font-family: 'Beyond';
+	font-size: 70px;
+	color: #31124b;
+	margin-top: -34px;
+}
+.home_background_img
+{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+/*********************************
+5.1. Pack
+*********************************/
+.pack
+{
+	width: 100%;
+	padding-top: 100px;
+	padding-bottom: 50px;
+	text-align: center;
+	display: inline-block;
+}
+.pack_box
+{
+	position: absolute;
+	bottom: 400px; 
+	left: 100px;
+	border: 2px solid purple;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.pack_box_2
+{
+	position: absolute;
+	bottom: 400px; 
+	left: 400px;
+	border: 2px solid purple;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.pack_box_3
+{
+	position: absolute;
+	bottom: 400px; 
+	left: 700px;
+	border: 2px solid purple;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.pack_box_items
+{
+
+}
+.pack_box_background
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	padding-top: 100px;
+	padding-bottom: 239px;
+	background-color: #31124b;
+}
+.pack_date
+{
+	font-size: 15px;
+	color: #FFFFFF;
+	top: 1px;
+	width: auto;
+	padding-left: 15px;
+	padding-right: 39px;
+	white-space: nowrap;
+	font-size: 13px;
+	font-weight: 700;
+	text-align: center;
+}
+.pack_name h1
+{
+	font-size: 59px;
+	font-weight: 700;
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 50px;
+}
+.pack_price
+{
+	font-size: 15px;
+	font-weight: 900;
+	color: #FFFFFF;
+	margin-top: -4px;
+	text-align: center;
+	padding-top: 60px;
+}
+.pack_button
+{
+	color: #FFFFFF;
+	padding-top: 70px;
+	font-weight: 200;
+}
+/********************
+6. Pied de Page
+*********************/
+
+.footer
+{
+	width: 100%;
+	height: 200px;
+	padding-bottom: 50px;
+	background: linear-gradient(to right, #fa9e1b, #8d4fff);
+}
+.footer_column
+{
+	padding-top: 5%;
+}
+.footer_title
+{
+	font-size: 15px;
+	font-weight: 700;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+/*********************************
+6.1 Pied de Page - Contact Info
+*********************************/
+
+.contact_info_list
+{
+	margin-top: 30px;
+	text-align: right;
+}
+.contact_info_item
+{
+	margin-bottom: 22px;
+}
+.contact_info_icon
+{
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+.contact_info_icon img
+{
+	display: inline-block;
+	width: 100%;
+}
+.contact_info_text,
+.contact_info_text a
+{
+	color: #FFFFFF;
+	line-height: 2.14;
+	margin-top: -4px;
+}
+.contact_info_item:hover .contact_info_text,
+.contact_info_item:hover .contact_info_text a
+{
+	color: #fa9e1b;
+}
+/*********************************
+6.2 Footer - About
+*********************************/
+
+.footer_about
+{
+	padding-top: 67px;
+}
+.footer_logo
+{
+	position: absolute;
+	left: 0;
+	top: -24px;
+}
+.footer_about_text
+{
+	font-family: 'Karla', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	color: #FFFFFF;
+}
+.footer_social_item
+{
+	display: inline-block;
+	width: 31px;
+	height: 31px;
+	border: solid 1px #fa9e1b;
+	border-radius: 50%;
+	text-align: center;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+	margin-right: 9px;
+}
+.footer_social_item:last-child
+{
+	margin-right: 0px;
+}
+.footer_social_item a
+{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.footer_social_item a i
+{
+	display: inline-block;
+	position: relative;
+	color: #FFFFFF;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 12px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.footer_social_item:hover
+{
+	background: #fa9e1b;
+}
+.footer_social_item:hover a i
+{
+	color: #31124b;
+}
+.search-container 
+{
+  float: right;
+  border: 50%;
+}
+.search-container button 
+{
+  float: right;
+  padding: 5px 10px;
+  margin-right: 16px;
+  background: #FFFFFF;
+  font-size: 17px;
+  border: 50%;
+  cursor: pointer;
+}
+.search-container button:hover 
+{
+  background: #fa9e1b;
+}
+
+/*adaptation selon ecran */
+@media screen and (max-width: 800px) 
+{
+.search-container 
+{
+    float: none;
+}
+.search-container button 
+{
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    height: 50%;
+}
+}
