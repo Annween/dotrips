@@ -51,17 +51,19 @@
 		<nav class="main_nav">
 			<div class="container">
 				<div class="row">
-						<div class="logo"><a href="index.php"><img src="images/logo.png" alt="">DO trips</a></div>	
+						<div class="logo"><a href="index.html"><img src="images/logo.png" alt="">DO trips</a></div>	
 					<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Packs</a></li>
-								<li class="main_nav_item"><a href="about.html">Catégories</a></li>
-								<li class="main_nav_item"><a href="contact.html">Contact</a></li>
-									<li class="main_nav_item"><a href="products.php">Boutique</a></li>
+								<li class="main_nav_item"><a href="index.php">Packs</a></li>
+								<li class="main_nav_item"><a href="categories.php">Catégories</a></li>
+								<li class="main_nav_item"><a href="contact.php">Contact</a></li>
+								<li class="main_nav_item"><a href="products.php">Boutique</a></li>
 								<?php
 									session_start();
 									/* ici débute la session*/ 
 									if (isset($_SESSION["access_level"]))
+
+										echo '<li class="main_nav_item"><a href="logout.php">Déconnexion</a></li>';
 									{
 										if ($_SESSION["access_level"] == '1') /* on établit un niveau d'accès pour créer le back office, ici l'administrateur possède le niveau d'accès 1 */
 										{
@@ -96,13 +98,12 @@
 		</div>
 	<div class="promo_box">
 		<div class="promo_text"> 
-		nos promotions du moment...</div>
+		Nos promotions du moment...</div>
 	</div>
 	</div>
 	</div>	
 
-
-
+	<!-- Packs 1 -->
 
 <div class="pack">
 	<div class="pack_box">
@@ -111,36 +112,39 @@
 			<div class="pack_date">10 Décembre au 20 Décembre</div>
 			<div class="pack_name">
 				<h1>Londres</h1>
-				<div class="pack_price">2000€</div>
+				<div class="pack_price">-10%</div>
 			</div>
-				<div class="button pack_button"><div class="button_bcg"></div><a href="#">Ajouter au Panier<span></span><span></span><span></span></a>
+				<div class="pack_button_text">Ajouter au Panier<a href="products.html"><span></span><span></span><span></span></a>
 				</div>
 		</div>
 	</div>
 
-	
+	<!-- Packs 2 -->
+
 		<div class="pack_box_2">
 		<div id="pack_box_items">
-			<div class="pack_box_background" style="background-image: url(images/london1.jpg);"></div>
+			<div class="pack_box_background" style="background-image: url(images/cardiff.jpg);"></div>
 			<div class="pack_date">10 Décembre au 20 Décembre</div>
 			<div class="pack_name">
 				<h1>Cardiff</h1>
-				<div class="pack_price">2000€</div>
+				<div class="pack_price">-20%</div>
 			</div>
-				<div class="button pack_button"><div class="button_bcg"></div><a href="#">Ajouter au Panier<span></span><span></span><span></span></a>
+				<div class="pack_button_text">Ajouter au Panier<a href="products.html"><span></span><span></span><span></span></a>
 				</div>
 		</div>
 	</div>
 
+	<!-- Packs 3 -->
+
 		<div class="pack_box_3">
 		<div id="pack_box_items">
-			<div class="pack_box_background" style="background-image: url(images/london1.jpg);"></div>
+			<div class="pack_box_background" style="background-image: url(images/bordeaux.jpg);"></div>
 			<div class="pack_date">10 Décembre au 20 Décembre</div>
 			<div class="pack_name">
 				<h1>Bordeaux</h1>
-				<div class="pack_price">2000€</div>
+				<div class="pack_price">-50%</div>
 			</div>
-				<div class="button pack_button"><div class="button_bcg"></div><a href="#">Ajouter au Panier<span></span><span></span><span></span></a>
+				<div class="pack_button_text">Ajouter au Panier<a href="products.html"><span></span><span></span><span></span></a>
 				</div>
 		</div>
 			</div>
@@ -159,7 +163,7 @@
 				<div class="footer_col">
 					<div class="footer_content footer_about">
 						<div class="logo_container footer_logo">
-							<div class="logo"><a href="#"><img src="images/logo.png" alt="">Do Trips</a></div>
+							<div class="logo"><a href="index.html"><img src="images/logo.png" alt="">Do Trips</a></div>
 							</div>
 							<p class="footer_about_text"> Venez découvrir le monde avec nous!</p>
 						</div>
@@ -172,18 +176,18 @@
 						<div class="footer_title">contact</div>
 						<div class="footer_content footer_contact">
 							<ul class="contact_info_list">
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
-									<div class="contact_info_text">9 Rue des Roses 75018 Paris</div>
-								</li>
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
+								<div class="contact_info_item d-flex flex-row">
+									<div class="contact_info_text">9 Rue des Roses 75018 FRANCE</div>
+								</div> 
+								<div class="contact_info_item d-flex flex-row">
 									<div class="contact_info_text"><a href="mailto:contact@dotrips.fr?Subject=Hello" target="_top">contact@dotrips.fr</a></div>
-								</li>
+								</div>
 							</ul>
 						</div>
 					</div>
 				</div>
+					<!-- Recherche -->
+
 				  	<div class="search-container">
     					<form action="/action_page.php">
       					<input type="text" placeholder="Recherche.." name="search">

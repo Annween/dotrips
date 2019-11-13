@@ -39,9 +39,12 @@
 
             <div class="user_box ml-auto">
               <?php
+              // Création du panier si n'existe pas dans la session de l'utilisateur
+              session_start();
               if (isset($_SESSION["access_level"]))
               {
                 echo "<div class='user_box_login user_box_link'><a href='panier.php'>Mon panier</a></div>";
+                 echo "<div class='user_box_login user_box_link'><a href='logout.php'>Déconnexion</a></div>";
               }
               else
               {
@@ -84,8 +87,6 @@
       <section>
   <div class="login">
 <?php 
-// Création du panier si n'existe pas dans la session de l'utilisateur
-session_start();
 // Voici l'affichage du panier
 echo '<h2>Contenu de votre panier</h2><ul>';
 /* Si un panier existe et n'est pas vide (a tester) */
@@ -96,11 +97,13 @@ if (isset($_SESSION['panier']) && count($_SESSION['panier'])>0)
   /* Initialisation d'une boucle */
   $i = 0;
   /* Pour chaque produit du panier */
-  for ($i = 0; $i <= $totalProd; $i++)
+  for ($i = 0; $i < $totalProd; $i++)
     {
       /* On "sort" du panier le produit d'index i et on affiche son id */
-      echo $_SESSION['panier'][$i]['id_produit']."</br>";
+      echo $_SESSION['panier'][$i]['id_produit']." x ".$_SESSION['panier'][$i]['qte_produit']."</br>";
     }
+
+  echo "Prix total: ". $_SESSION['total_price'];
 }
 else
 { 

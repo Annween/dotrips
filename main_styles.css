@@ -21,8 +21,6 @@ Document CSS
 1. Polices 
 ***********/
 
-/* #413571 */
-
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700');
 @font-face
 {
@@ -38,8 +36,6 @@ Document CSS
 {
 	margin: 0;
 	padding: 0;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 body
@@ -54,8 +50,6 @@ div
 {
 	display: block;
 	position: relative;
-	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 ul
@@ -70,8 +64,6 @@ p
 	line-height: 2;
 	font-weight: 400;
 	color: #929191;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 p a
@@ -80,17 +72,11 @@ p a
 	position: relative;
 	color: inherit;
 	border-bottom: solid 1px #ffa07f;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
 a, a:hover, a:visited, a:active, a:link
 {
 	text-decoration: none;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 p a:active
@@ -123,8 +109,6 @@ h5{font-size: 14px;}
 h1, h2, h3, h4, h5, h6
 {
 	font-family: 'Karla', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 h1::selection, 
@@ -174,10 +158,6 @@ section
 	width: 100%;
 	height: 36px;
 	background: linear-gradient(to right, #fa9e1b, #8d4fff);
-	-webkit-transition: all 400ms ease;
-	-moz-transition: all 400ms ease;
-	-ms-transition: all 400ms ease;
-	-o-transition: all 400ms ease;
 	transition: all 400ms ease;
 }
 .social
@@ -209,16 +189,12 @@ section
 }
 .social_list_item:hover a i
 {
-	color: #fa9e1c;
+	color: #31124b;
 }
 .social_list_item a i
 {
 	font-size: 12px;
 	color: #FFFFFF;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
 .social_list_item a:hover
@@ -231,12 +207,13 @@ section
 }
 .user_box_link a
 {
-	display: block;
+	display: inline-block;
 	font-size: 13px;
 	line-height: 36px;
 	font-weight: 600;
 	color: #FFFFFF;
 	text-transform: uppercase;
+	text-shadow: 1px 1px purple;
 }
 .user_box_link a:hover
 {
@@ -246,6 +223,7 @@ section
 {
 	margin-right: 15px;
 }
+
 .user_box_login::after
 {
 	display: block;
@@ -257,16 +235,13 @@ section
 	height: 9px;
 	content: '';
 }
+
 /*********************************
 3.2 Logo
 *********************************/
 .logo_container
 {
-	-webkit-transform: translateY(-6px);
-	-moz-transform: translateY(-6px);
-	-ms-transform: translateY(-6px);
-	-o-transform: translateY(-6px);
-	transform: translateY(-6px);
+
 }
 .logo a
 {
@@ -274,17 +249,18 @@ section
 	font-size: 40px;
 	color: #FFFFFF;
 	font-weight: 200;
+	text-shadow: 1px 1px purple;
+}
+.logo a:hover
+{
+	color: #FFFFFF;	
 }
 .logo a img
 {
 	display: inline-block;
 	vertical-align: baseline;
 	margin-right: 9px;
-	-webkit-transform: translateY(2px);
-	-moz-transform: translateY(2px);
-	-ms-transform: translateY(2px);
-	-o-transform: translateY(2px);
-	transform: translateY(2px);
+
 }
 /*****************
 3.3. Navigation
@@ -300,7 +276,6 @@ section
 }
 .main_nav_item
 {
-	/*border: 2px solid #FFFFFF;*/
 	position: relative;
 	display: inline-block;
 	margin-right: 40px;
@@ -314,14 +289,26 @@ section
 	font-family: 'Karla', sans-serif;
 	font-size: 20px;
 	font-weight: 900;
-	color: #31124b;
+	color: #FFFFFF;
 	text-transform: uppercase;
 	padding-bottom: 10px;
 	padding-top: 10px;
+	text-shadow: 1px 1px purple;
 }
 .main_nav_item a:hover
 {
 	color: #fa9e1c;
+}
+.main_nav_item::after
+{
+	display: block;
+	position: absolute;
+	top: 7px;
+	right: -15px;
+	background: #FFFFFF;
+	width: 2px;
+	height: 15px;
+	content: '';	
 }
 
 /*********************************
@@ -353,6 +340,7 @@ section
 	font-weight: 700;
 	color: #31124b;
 	text-transform: uppercase;
+	text-shadow: 1px 1px orange;
 }
 .home_background_text h1:nth-child(2)
 {
@@ -360,6 +348,7 @@ section
 	font-size: 70px;
 	color: #31124b;
 	margin-top: -34px;
+	text-shadow: 1px 1px orange;
 }
 
 /*********************************
@@ -373,10 +362,14 @@ section
 }
 .promo_text
 {
+	font-family: 'Karla';
+	font-weight: 400;
 	text-align: center;
-	font-size: 15px;
+	margin-top: 50px;
+	font-size: 30px;
 	color: #31124b;
-	text-transform: uppercase;
+	text-transform: none;
+	text-shadow: 1px 1px orange;
 
 }
 .pack
@@ -390,29 +383,32 @@ section
 .pack_box
 {
 	position: absolute;
-	bottom: 400px; 
-	left: 100px;
+	bottom: 350px; 
+	left: 300px;
 	border: 2px solid purple;
 	padding-bottom: 20px;
 	text-align: center;
+	box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 .pack_box_2
 {
 	position: absolute;
-	bottom: 400px; 
-	left: 400px;
+	bottom: 350px; 
+	left: 600px;
 	border: 2px solid purple;
 	padding-bottom: 20px;
 	text-align: center;
+	box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 .pack_box_3
 {
 	position: absolute;
-	bottom: 400px; 
-	left: 700px;
+	bottom: 350px; 
+	left: 900px;
 	border: 2px solid purple;
 	padding-bottom: 20px;
 	text-align: center;
+	box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 .pack_box_items
 {
@@ -426,8 +422,7 @@ section
 	background-position: center;
 	background-size: cover;
 	padding-top: 100px;
-	padding-bottom: 239px;
-	background-color: #31124b;
+	padding-bottom: 268px;
 }
 .pack_date
 {
@@ -436,11 +431,12 @@ section
 	top: 1px;
 	width: auto;
 	padding-left: 15px;
-	padding-right: 39px;
+	padding-right: 35px;
 	white-space: nowrap;
 	font-size: 13px;
 	font-weight: 700;
-	text-align: center;
+	text-align: justify;
+	text-shadow: 1px 2px black;
 }
 .pack_name h1
 {
@@ -449,21 +445,160 @@ section
 	color: #FFFFFF;
 	text-align: center;
 	padding-top: 50px;
+	text-shadow: 3px 2px black;
 }
 .pack_price
 {
-	font-size: 15px;
+	font-size: 30px;
 	font-weight: 900;
 	color: #FFFFFF;
 	margin-top: -4px;
 	text-align: center;
 	padding-top: 60px;
+	text-shadow: 3px 2px black;
 }
 .pack_button
 {
+
+}
+.pack_button_text
+{
 	color: #FFFFFF;
 	padding-top: 70px;
-	font-weight: 200;
+	font-weight: 400;
+	font-size: 20px;
+	text-shadow: 1px 1px black;
+	text-decoration: underline;
+}
+.pack_button_text:hover
+{
+	color: orange;
+	cursor: pointer;
+}
+/*********************************
+5. Contact Form Section
+*********************************/
+
+.contact_form_section
+{
+	padding-top: 105px;
+}
+.contact_form_container
+{
+	padding-top: 74px;
+	padding-left: 98px;
+	padding-right: 98px;
+	padding-bottom: 100px;
+	background: linear-gradient(to top right, #fa9e1b, #8d4fff);
+}
+.contact_title
+{
+	font-size: 30px;
+	font-weight: 700;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	text-shadow: 1px 2px purple;
+}
+.contact_form
+{
+	margin-top: 52px;
+	font-size: 0px;
+}
+.input_field
+{
+	height: 48px;
+	font-size: 12px;
+	font-weight: 400;
+	border: none;
+	outline: none;
+	background: transparent;
+	color: #FFFFFF;
+	border-bottom: solid 2px #e1e1e1;
+	text-shadow: 1px 1px purple;
+}
+.contact_form_name
+{
+	width: calc((100% - 30px) / 2);
+	margin-right: 30px;
+}
+.contact_form_email
+{
+	width: calc((100% - 30px) / 2);
+}
+.contact_form_subject
+{
+	width: 100%;
+	margin-top: 11px;
+}
+.contact_form_message
+{
+	height: 126px;
+	width: 100%;
+	border: none;
+	outline: none;
+	margin-top: 19px;
+	background: transparent;
+	font-size: 12px;
+	font-weight: 400;
+	color: #FFFFFF;
+	border-bottom: solid 2px #e1e1e1;
+	padding-top: 11px;
+	text-shadow: 1px 1px purple;
+}
+.form_submit_button
+{
+	font-size: 13px;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	line-height: 53px;
+	padding-left: 29px;
+	padding-right: 29px;
+	background: #31124b;
+	transform: translateY(15px);
+	border: none;
+	outline: none;
+	margin-top: 37px;
+	cursor: pointer;
+}
+.form_submit_button:hover
+{
+	opacity: 0.8;
+}
+.input_field::-webkit-input-placeholder,
+.text_field::-webkit-input-placeholder
+{
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	color: #FFFFFF !important;
+}
+.input_field:-moz-placeholder,
+.text_field:-moz-placeholder
+{
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	color: #FFFFFF !important;
+}
+.input_field::-moz-placeholder,
+.text_field::-moz-placeholder
+{
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	color: #FFFFFF !important;
+} 
+.input_field:-ms-input-placeholder,
+.text_field:-ms-input-placeholder
+{ 
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	color: #FFFFFF !important;
+}
+.input_field::input-placeholder,
+.text_field::input-placeholder
+{
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	color: #FFFFFF !important;
 }
 /********************
 6. Pied de Page
@@ -482,10 +617,12 @@ section
 }
 .footer_title
 {
+	left: 100px;
 	font-size: 15px;
 	font-weight: 700;
 	color: #FFFFFF;
 	text-transform: uppercase;
+	text-shadow: 1px 1px purple;
 }
 /*********************************
 6.1 Pied de Page - Contact Info
@@ -493,30 +630,23 @@ section
 
 .contact_info_list
 {
+	left: 50px;
 	margin-top: 10px;
 	text-align: right;
 }
 .contact_info_item
 {
-	margin-bottom: 22px;
-}
-.contact_info_icon
-{
-	width: 20px;
-	height: 20px;
-	margin-right: 10px;
-}
-.contact_info_icon img
-{
-	display: inline-block;
-	width: 100%;
+	left: 50px;
+	margin-bottom: 10px;
 }
 .contact_info_text,
 .contact_info_text a
 {
+	left: 50px;
 	color: #FFFFFF;
 	line-height: 2.14;
 	margin-top: -4px;
+	text-shadow: 1px 1px purple;
 }
 .contact_info_item:hover .contact_info_text,
 .contact_info_item:hover .contact_info_text a
@@ -529,13 +659,13 @@ section
 
 .footer_about
 {
-	padding-top: 67px;
+	padding-top: 50px;
 }
 .footer_logo
 {
 	position: absolute;
 	left: 0;
-	top: -24px;
+	top: -10px;
 }
 .footer_about_text
 {
@@ -543,26 +673,27 @@ section
 	font-size: 14px;
 	font-weight: 600;
 	color: #FFFFFF;
+	text-shadow: 1px 1px purple;
 }
 .search-container 
 {
-  float: right;
-  border: 50%;
-  top: 50px;
+	left: 200px;
+  	float: right;
+  	border: 50%;
+  	top: 50px;
 }
 .search-container button 
 {
-  float: right;
-  padding: 5px 10px;
-  margin-right: 16px;
-  background: #FFFFFF;
-  font-size: 17px;
-  border: 50%;
-  cursor: pointer;
+  	float: right;
+  	padding: 1.5px 10px;
+  	margin-right: 16px;
+  	background: #FFFFFF;
+  	border: 50%;
+  	cursor: pointer;
 }
 .search-container button:hover 
 {
-  background: #fa9e1b;
+  	background: #fa9e1b;
 }
 
 /*adaptation selon ecran */
@@ -582,9 +713,4 @@ section
     padding: 14px;
 }
 
-
 }
-
-.login {
-	margin: 400px 0 0 600px
-	}

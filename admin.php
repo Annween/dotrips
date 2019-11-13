@@ -58,11 +58,28 @@
 								<li class="main_nav_item"><a href="about.html">Catégories</a></li>
 								<li class="main_nav_item"><a href="contact.html">Contact</a></li>
 									<li class="main_nav_item"><a href="products.php">Boutique</a></li>
-								<?php
-									session_start();
+<?php
+							
+/* Set server path */
+$PARAM_hote='localhost';
+/* Set server port */
+$PARAM_port='3306';
+/* Set database name */
+$PARAM_nom_bd='eboutique';
+/* Connect as root */
+$PARAM_utilisateur='root';
+/* No password */
+$PARAM_mot_passe='';
+
+session_start();
+
+/* Initialize connexion to database */
+$connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$PARAM_nom_bd, $PARAM_utilisateur, $PARAM_mot_passe);
+
+									
 									/* ici débute la session*/ 
 									if (isset($_SESSION["access_level"]))
-										echo '<li class="main_nav_item"><a href="logout.php">Déconnexion</a></li>';
+										echo "<div class='user_box_login user_box_link'><a href='logout.php'>Déconnexion</a></div>";
 									{
 										if ($_SESSION["access_level"] == '1') /* on établit un niveau d'accès pour créer le back office, ici l'administrateur possède le niveau d'accès 1 */
 										{
@@ -91,14 +108,26 @@
 <FORM action="" method="post">
 	<table>
 		<tr>
-			<td><label> AJOUTER UN ADMINISTRATEUR </label></td>
-			<td><input type="text" name="add_user"/></td>
+			<td><label> PSEUDO</label></td>
+			<td><input type="text" name="pseudo_admin"/></td>
 			 <tr>
 			<td></td>
-			<td><input type="submit" name= "AJOUTER" value="AJOUTER ADMIN"/></td>
+			
 		</tr>
 		</tr>
 		</tr>
+
+	<tr>
+			<td><label> MOT DE PASSE </label></td>
+			<td><input type="text" name="mdp_admin"/></td>
+			 <tr>
+			<td></td>
+			<td><input type="submit" name= "add_user" value="AJOUTER ADMIN"/></td>
+		</tr>
+		</tr>
+		</tr>
+
+
 		<tr>
 			<td><label> SURRPIMER UN UTILISATEUR </label></td>
 			<td><input type="text" name="delete_user"/></td>
@@ -165,10 +194,17 @@
 
 <?php 
 
-if(isset ($_POST["AJOUTER ADMIN"]))
+if(isset ($_POST["add_user"]))
 {
-	$query = $add_user->query("INSERT INTO membre(pseudo_membre,mdp_membre,access_level) VALUES (:pseudo_membre, PASSWORD(:mdp_membre),:1)");
 
+	$c = $connexion->prepare("INSERT INTO membre(pseudo_membre,mdp_membre,access_level) VALUES (:pseudo_membre, PASSWORD(:mdp_membre),1)");
+
+	$c->execute([
+					'pseudo_membre'=>$pseudo_admin,
+					'mdp_membre'=>$mdp_admin,
+					
+				]);
+	echo "L'administrateur a bien été ajouté ";
 }
 
 

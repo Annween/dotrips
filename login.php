@@ -31,6 +31,7 @@ session_start();
 /* Initialize connexion to database */
 $connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$PARAM_nom_bd, $PARAM_utilisateur, $PARAM_mot_passe);
 
+
 /* Is it a return from login form? */
 if (isset($_POST["pseudo"]) && isset($_POST["passe"]))
 {
@@ -45,6 +46,7 @@ if (isset($_POST["pseudo"]) && isset($_POST["passe"]))
 
 		$_SESSION["access_level"] = $firstRow['access_level'];
 		$_SESSION["total_product"] = 0;
+		$_SESSION["total_price"] = 0;
 	}
 	else
 	{
@@ -83,7 +85,7 @@ if (isset($_POST["pseudo"]) && isset($_POST["passe"]))
 							if (isset($_SESSION["access_level"]))
 							{
 								echo "<div class='user_box_login user_box_link'><a href='panier.php'>Mon panier</a></div>";
-								echo "<div class='user_box_login user_box_link'><a href='logout.php'>Déconnexion</a></li>";
+								echo "<div class='user_box_login user_box_link'><a href='logout.php'>Déconnexion</a></div>";
 							}
 							else
 							{

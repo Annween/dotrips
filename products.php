@@ -62,6 +62,7 @@ $connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$
 							if (isset($_SESSION["access_level"]))
 							{
 								echo "<div class='user_box_login user_box_link'><a href='panier.php'>Mon panier</a></div>";
+								echo "<div class='user_box_login user_box_link'><a href='logout.php'>Déconnexion</a></div>";
 							}
 							else
 							{
@@ -87,8 +88,8 @@ $connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a href="index.php">Accueil</a></li>
-								<li class="main_nav_item"><a href="about.html">A Propos</a></li>
-								<li class="main_nav_item"><a href="contact.html">Contact</a></li>
+								<li class="main_nav_item"><a href="about.php>">A Propos</a></li>
+								<li class="main_nav_item"><a href="contact.php">Contact</a></li>
 								<li class="main_nav_item"><a href="products.php">Boutique</a></li>
 							</ul>
 						</div>
@@ -106,14 +107,33 @@ $connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$
 <FORM action="" method="post">
 		<?php
 		/* Si on est en retour de formulaire d'ajout */
-		if (isset($_POST['product_nbr']))
+		if (isset($_POST["add_basket"]))
 		{
-			/* On ajoute 1 au nombre total d'article */
-			$_SESSION["total_product"] = $_SESSION["total_product"] + 1;
-			/* Variable temporaire de nombre total d'articles */
-			$totalProd = $_SESSION["total_product"];
-			/* On ajoute au panier de session l'ID du produit issue du formulaire */
-			$_SESSION['panier'][$totalProd]['id_produit'] = $_POST['product'];
+			if (   (empty($_POST["product_nbr"]))
+		        || ($_POST["product_nbr"] == "0"))
+		    {
+				echo "ERREUR : Veuillez saisir la quantité souhaitée ";
+		    }
+		    else
+		   	{
+		   		/* Variable temporaire de nombre total d'articles */
+				$totalProd = $_SESSION["total_product"];
+				/* On ajoute au panier de session l'ID du produit issue du formulaire */
+				$_SESSION['panier'][$totalProd]['id_produit'] = $_POST['product'];
+				$_SESSION['panier'][$totalProd]['qte_produit'] = $_POST['product_nbr'];
+
+                /* On requete en BDD le prix du produit selectionne */
+
+			    $c = $connexion->prepare("SELECT `prix_produit` FROM `produits` WHERE `nom_produit`='".$_POST['product']."'");
+			    $c->execute();
+			    $price = $c->fetch();
+
+			    $_SESSION["total_price"] = $_SESSION["total_price"] + ($price['prix_produit'] * $_POST['product_nbr']);
+
+				/* On ajoute 1 au nombre total d'article */
+				$_SESSION["total_product"] = $_SESSION["total_product"] + 1;
+		   	}
+			
 		}
 		/* Sinon */
 		else
@@ -123,7 +143,9 @@ $connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$
 			$c->execute();
 			$i = 0;
 			/* Initialisation d'un tableau dynamique */
-			echo "<table>";
+			echo '<table style="border-style:inset; border-width:1">';
+			echo "<thead><tr><th style='width:20%'>id_produit</th><th style='width:20%'>nom_produit</th><th style='width:20%'>prix_produit</th><th style='width:20%'>stock_produit</th><th style='width:20%'>num_cat</th></tr></thead>";
+			echo "<tbody>";
 			/* Pour chaque produit on dépile la réponse */
 			while ($product[$i]=$c->fetch())
 			{
@@ -137,6 +159,7 @@ $connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$
 				echo "</tr>";
 				$i = $i + 1;
 			}
+			echo "</tbody>";
 			echo "</table>";
 			/* Crétation d'une liste déroulante dynamique */
 			/* Ici la variable i est le nombre total de produit */
@@ -150,21 +173,8 @@ $connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$
 			/* Quantite et fin du formulaire */
 			echo "Quantite: <input type='text' name='product_nbr'></br>";
 			echo "<input type='submit' name='add_basket' value='Ajouter au panier'/>";
-
-			if (isset($_POST["add_basket"])) {
-
-				
-				if (!empty($product_nbr)){
-
-					echo "ERREUR : Veuillez saisir la quantité souhaitée ";
-				}	
-            }
-
-
-			}
-
-
-			?>
+		}
+		?>
 </FORM>
 </div>
 </section>
